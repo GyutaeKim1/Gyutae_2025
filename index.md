@@ -1,8 +1,8 @@
 ---
 layout: base
-title: Student Home 
+title: Gyutae Home 
 description: Home Page
 hide: true
 ---
 
-Hi, journey starts here.
+Hi I'm Gyutae. My journey starts here.
