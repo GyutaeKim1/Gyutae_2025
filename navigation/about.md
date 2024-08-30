@@ -4,4 +4,4 @@ title: About
 permalink: /about/
 ---
 
-I am Gyutae Kim
+Hi, I am Gyutae Kim. 
