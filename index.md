@@ -5,4 +5,4 @@ description: Home Page
 hide: true
 ---
 
-Hi I'm Gyutae. My journey starts here.
+Welcome! Hi, I'm Gyutae. My journey starts here.
