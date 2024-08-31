@@ -2,6 +2,7 @@
 layout: base
 title: Gyutae Home 
 description: Home Page
+author: Gyutae Kim
 image: /images/mario_animation.png
 hide: true
 ---
