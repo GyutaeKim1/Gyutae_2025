@@ -6,7 +6,7 @@ image: /images/mario_animation.png
 hide: true
 ---
 
- Welcome! Hi, I'm Gyutae. My journey starts here...
+ Welcome! Hi, my name is Gyutae. My journey starts here...
 
 <!-- Liquid:  statements -->
 
