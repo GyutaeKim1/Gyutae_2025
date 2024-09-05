@@ -198,7 +198,7 @@ hide: true
   <a href="https://www.laliga.com/en-GB">La Liga</a>
   <p>Other Leagues</p>
   <a href="https://ligue1.com/">League 1</a>
-  
+  <a href="https://www.bundesliga.com/en/bundesliga">Bundesliga</a>
 <div> 
 
 
