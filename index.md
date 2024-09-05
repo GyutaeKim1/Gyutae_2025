@@ -201,5 +201,6 @@ hide: true
   <p><a href="https://www.bundesliga.com/en/bundesliga">Bundesliga</a></p>
 </div> 
 
+![CR7](images/Cristiano-Ronaldo.avif)
 
 
