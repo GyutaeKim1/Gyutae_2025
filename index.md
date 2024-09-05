@@ -191,9 +191,15 @@ hide: true
 
 </script>
 
-<p>This is the first paragarph</p>
-<button>button</button>
-<a href="https://www.premierleague.com/">Premier Leauge</a>
-<a href="https://www.laliga.com/en-GB">La Liga</a>
+<div>
+  <p>This is the first paragarph of section 1</p>
+  <button>button</button>
+  <a href="https://www.premierleague.com/">Premier Leauge</a>
+  <a href="https://www.laliga.com/en-GB">La Liga</a>
+  <p>This is the end of section 1</p>
+<div> 
+
+<div>
+  <p>This is the first paragraph of section 2
 
 
