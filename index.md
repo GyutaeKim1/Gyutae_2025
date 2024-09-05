@@ -194,12 +194,12 @@ hide: true
 <div>
   <p>soccer</p>
   <button>button</button>
-  <a href="https://www.premierleague.com/">Premier Leauge</a>
-  <a href="https://www.laliga.com/en-GB">La Liga</a>
+  <p><a href="https://www.premierleague.com/">Premier Leauge</a></p>
+  <p><a href="https://www.laliga.com/en-GB">La Liga</a></p>
   <p>Other Leagues</p>
-  <a href="https://ligue1.com/">League 1</a>
-  <a href="https://www.bundesliga.com/en/bundesliga">Bundesliga</a>
-<div> 
+  <p><a href="https://ligue1.com/">League 1</a></p>
+  <p><a href="https://www.bundesliga.com/en/bundesliga">Bundesliga</a></p>
+</div> 
 
 
 
