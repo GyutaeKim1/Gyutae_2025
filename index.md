@@ -192,14 +192,14 @@ hide: true
 </script>
 
 <div>
-  <p>This is the first paragarph of section 1</p>
+  <p>soccer</p>
   <button>button</button>
   <a href="https://www.premierleague.com/">Premier Leauge</a>
   <a href="https://www.laliga.com/en-GB">La Liga</a>
-  <p>This is the end of section 1</p>
+  <p>Other Leagues</p>
+  <a href="https://ligue1.com/">League 1</a>
+  
 <div> 
 
-<div>
-  <p>This is the first paragraph of section 2
 
 
