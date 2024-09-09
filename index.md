@@ -197,3 +197,19 @@ hide: true
 ![CR7](images/Cristiano-Ronaldo.avif)
 
 
+# My GitHub Pages
+
+Welcome to my GitHub Pages site! Here’s a quick overview of the sections available:
+
+## Main Menu
+
+- [Home](index.md)
+- [Notebooks](notebooks.md)
+- [About](about.md)
+- [Projects](projects.md)
+
+## Notebooks Submenu
+
+- [Planning Document](notebooks/planning_document.ipynb)
+- [JavaScript Notebook](notebooks/javascript_notebook.ipynb)
+- [Analysis Notebook](notebooks/analysis_notebook.ipynb)
