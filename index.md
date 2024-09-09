@@ -213,3 +213,6 @@ Welcome to my GitHub Pages site! Here’s a quick overview of the sections avail
 - [Planning Document](notebooks/planning_document.ipynb)
 - [JavaScript Notebook](notebooks/javascript_notebook.ipynb)
 - [Analysis Notebook](notebooks/analysis_notebook.ipynb)
+
+
+<link rel="stylesheet" href="/assets/css/main.css">
