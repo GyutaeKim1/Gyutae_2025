@@ -1,0 +1,17 @@
+// main.scss
+
+// Global styles if needed
+body {
+    font-family: Arial, sans-serif;
+  }
+  
+  // Import Cayman Theme
+  body {
+    @import 'jekyll-theme-cayman';
+  }
+  
+  // Midnight theme will be applied with the class 'midnight'
+  body.midnight {
+    @import 'jekyll-theme-midnight';
+  }
+  

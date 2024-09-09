@@ -1,0 +1,165 @@
+// Variables
+$primary-font: 'Lobster', cursive;
+$primary-bg-color: #61c0a8;
+$secondary-bg-color: #ffffff;
+$primary-color: white;
+$secondary-color: #cc0000;
+$tertiary-color: #ffd700;
+$th-bg-color: rgb(123, 35, 53);
+$tbody-bg-color: rgb(182, 49, 80);
+$border-color: rgb(123, 35, 53);
+$star-unicode: '\2605';
+
+// Mixins
+@mixin font-family($font) {
+font-family: $font !important;
+}
+
+@mixin background($color) {
+background-color: $color !important;
+}
+
+@mixin text-style($color) {
+color: $color;
+}
+
+@mixin border($color) {
+border-color: $color !important;
+}
+
+@mixin box-shadow($shadow-color) {
+text-shadow: 2px 2px 4px $shadow-color;
+}
+
+@mixin animation($name, $duration, $timing, $iteration) {
+animation: #{$name} #{$duration} #{$timing} #{$iteration};
+}
+
+// Styles
+header, footer {
+@include font-family($primary-font);
+@include background($primary-bg-color);
+}
+
+body {
+@include font-family($primary-font);
+@include background($secondary-bg-color);
+@include text-style($primary-color);
+background-image: url('https://images3.alphacoders.com/196/196797.jpg');
+//filter: blur(8px);
+}
+
+.snow, .snow:before, .snow:after {
+z-index: -3;
+position: absolute;
+top: -650px;
+left: 0;
+bottom: 0;
+right: 0;
+background-image: 
+    radial-gradient(4px 4px at 100px 50px, #fff , transparent), 
+    radial-gradient(6px 6px at 200px 150px, #fff, transparent), 
+    radial-gradient(3px 3px at 300px 250px, #fff 50%, transparent), 
+    radial-gradient(4px 4px at 400px 350px, #fff 50%, transparent), 
+    radial-gradient(6px 6px at 500px 100px, #fff 50%, transparent), 
+    radial-gradient(3px 3px at 50px 200px, #fff 50%, transparent), 
+    radial-gradient(4px 4px at 150px 300px, #fff 50%, transparent), 
+    radial-gradient(6px 6px at 250px 400px, #fff 50%, transparent), 
+    radial-gradient(3px 3px at 350px 500px, #fff 50%, transparent);
+background-size: 650px 650px;
+@include animation(snow, 3s, linear, infinite);
+content: "";
+}
+
+.snow:after {
+margin-left: -250px;
+opacity: 0.5;
+filter: blur(2px);
+@include animation(snow, 6s, linear, infinite reverse);
+z-index: -4;
+}
+
+.snow:before {
+margin-left: -350px;
+opacity: 0.7;
+filter: blur(1px);
+@include animation(snow, 9s, linear, infinite reverse);
+z-index: -4;
+}
+
+@keyframes snow {
+to {
+    transform: translateY(650px);
+}
+}
+
+th {
+@include text-style($primary-color);
+@include background($th-bg-color);
+@include border($th-bg-color);
+}
+
+ul {
+@include text-style($primary-color);
+}
+
+tbody, td, tr, table {
+@include font-family($primary-font);
+@include text-style($primary-color);
+@include background($tbody-bg-color);
+@include border($border-color);
+}
+
+a {
+@include font-family($primary-font);
+@include text-style($primary-color);
+}
+
+h2, p {
+@include font-family($primary-font);
+@include text-style($primary-color);
+}
+
+h1 {
+font-size: 36px;
+@include text-style($secondary-color);
+text-align: center;
+text-transform: uppercase;
+letter-spacing: 2px;
+margin-bottom: 20px;
+font-weight: bold;
+@include box-shadow($primary-color);
+}
+
+h1::before {
+content: $star-unicode;
+font-size: 42px;
+margin-right: 10px;
+}
+
+h1::after {
+content: $star-unicode;
+font-size: 42px;
+margin-left: 10px;
+}
+
+/* Additional styles for a Christmas-themed feel */
+h1::before, h1::after {
+display: inline-block;
+@include animation(twinkling, 1.5s, ease-in-out, infinite);
+@include text-style($tertiary-color);
+}
+
+.basicChex {
+@include text-style($primary-color);
+}
+
+/* Animation for a twinkling effect */
+@keyframes twinkling {
+0%, 100% { opacity: 1; }
+50% { opacity: 0.8; }
+}
+
+form {
+@include text-style($primary-color);
+}

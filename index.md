@@ -215,4 +215,12 @@ Welcome to my GitHub Pages site! Here’s a quick overview of the sections avail
 - [Analysis Notebook](notebooks/analysis_notebook.ipynb)
 
 
-<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/custom.css">
+
+
+# Welcome to My Blog
+
+<!-- HTML for theme toggle button -->
+<button id="theme-toggle">Toggle Theme</button>
+
+Here's some content on my homepage.

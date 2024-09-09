@@ -1,0 +1,52 @@
+/*
+Error: File to import not found or unreadable: jekyll-theme-cayman.
+        on line 4 of main.scss
+
+1: // main.scss
+2: 
+3: // Cayman Theme
+4: @import 'jekyll-theme-cayman';
+5: 
+6: // Midnight Theme
+7: @import 'jekyll-theme-midnight';
+
+Backtrace:
+main.scss:4
+/home/gyutaekim/gems/gems/sass-3.7.4/lib/sass/tree/import_node.rb:67:in `rescue in import'
+/home/gyutaekim/gems/gems/sass-3.7.4/lib/sass/tree/import_node.rb:44:in `import'
+/home/gyutaekim/gems/gems/sass-3.7.4/lib/sass/tree/import_node.rb:28:in `imported_file'
+/home/gyutaekim/gems/gems/sass-3.7.4/lib/sass/tree/import_node.rb:37:in `css_import?'
+/home/gyutaekim/gems/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:310:in `visit_import'
+/home/gyutaekim/gems/gems/sass-3.7.4/lib/sass/tree/visitors/base.rb:36:in `visit'
+/home/gyutaekim/gems/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+/home/gyutaekim/gems/gems/sass-3.7.4/lib/sass/stack.rb:79:in `block in with_base'
+/home/gyutaekim/gems/gems/sass-3.7.4/lib/sass/stack.rb:135:in `with_frame'
+/home/gyutaekim/gems/gems/sass-3.7.4/lib/sass/stack.rb:79:in `with_base'
+/home/gyutaekim/gems/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:158:in `visit'
+/home/gyutaekim/gems/gems/sass-3.7.4/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
+/home/gyutaekim/gems/gems/sass-3.7.4/lib/sass/tree/visitors/base.rb:52:in `map'
+/home/gyutaekim/gems/gems/sass-3.7.4/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+/home/gyutaekim/gems/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:167:in `block in visit_children'
+/home/gyutaekim/gems/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
+/home/gyutaekim/gems/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:166:in `visit_children'
+/home/gyutaekim/gems/gems/sass-3.7.4/lib/sass/tree/visitors/base.rb:36:in `block in visit'
+/home/gyutaekim/gems/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:186:in `visit_root'
+/home/gyutaekim/gems/gems/sass-3.7.4/lib/sass/tree/visitors/base.rb:36:in `visit'
+/home/gyutaekim/gems/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:157:in `visit'
+/home/gyutaekim/gems/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:10:in `visit'
+/home/gyutaekim/gems/gems/sass-3.7.4/lib/sass/tree/root_node.rb:36:in `css_tree'
+/home/gyutaekim/gems/gems/sass-3.7.4/lib/sass/tree/root_node.rb:29:in `render_with_sourcemap'
+/home/gyutaekim/gems/gems/sass-3.7.4/lib/sass/engine.rb:389:in `_render_with_sourcemap'
+/home/gyutaekim/gems/gems/sass-3.7.4/lib/sass/engine.rb:307:in `render_with_sourcemap'
+/home/gyutaekim/gems/gems/sass-3.7.4/lib/sass/exec/sass_scss.rb:387:in `run'
+/home/gyutaekim/gems/gems/sass-3.7.4/lib/sass/exec/sass_scss.rb:63:in `process_result'
+/home/gyutaekim/gems/gems/sass-3.7.4/lib/sass/exec/base.rb:50:in `parse'
+/home/gyutaekim/gems/gems/sass-3.7.4/lib/sass/exec/base.rb:18:in `parse!'
+/home/gyutaekim/gems/gems/sass-3.7.4/bin/sass:13:in `<top (required)>'
+/home/gyutaekim/gems/bin/sass:25:in `load'
+/home/gyutaekim/gems/bin/sass:25:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: File to import not found or unreadable: jekyll-theme-cayman.\A         on line 4 of main.scss\A \A 1: // main.scss\A 2: \A 3: // Cayman Theme\A 4: @import 'jekyll-theme-cayman';\A 5: \A 6: // Midnight Theme\A 7: @import 'jekyll-theme-midnight';"; }
