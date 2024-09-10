@@ -96,3 +96,10 @@ permalink: /soccer/
 <p>Som Heung-min is my favorite soccer player</p>
 
 ![Son]({{site.baseurl}}/images/Son.png)
+
+# Chelsea
+
+<p>My favorite soccer club is Chelsea</p>
+<p>London will always be Blue</p>
+
+![Chelsea]({{site.baseurl}}/images/Chelsea.png)
