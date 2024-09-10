@@ -217,6 +217,107 @@ Welcome to my GitHub Pages site! Here’s a quick overview of the sections avail
 
 <link rel="stylesheet" href="/assets/css/custom.css">
 
+# Theme-Switcher
+
 <button id="theme-switcher">Switch Theme</button>
 
+# Rock Paper Scissors Game
 
+Here is a simple Rock, Paper, Scissors game you can play directly in your browser!
+
+## Instructions
+
+Click on one of the buttons below to make your choice. The computer will then make its choice, and you'll see the result.
+
+<div id="game">
+    <button onclick="play('rock')">Rock</button>
+    <button onclick="play('paper')">Paper</button>
+    <button onclick="play('scissors')">Scissors</button>
+</div>
+
+<p id="result"></p>
+
+<script>
+function play(userChoice) {
+    const choices = ['rock', 'paper', 'scissors'];
+    const computerChoice = choices[Math.floor(Math.random() * 3)];
+    
+    let result = '';
+    
+    if (userChoice === computerChoice) {
+        result = 'It\'s a tie!';
+    } else if (
+        (userChoice === 'rock' && computerChoice === 'scissors') ||
+        (userChoice === 'paper' && computerChoice === 'rock') ||
+        (userChoice === 'scissors' && computerChoice === 'paper')
+    ) {
+        result = 'You win!';
+    } else {
+        result = 'You lose!';
+    }
+    
+    document.getElementById('result').innerText = `Computer chose ${computerChoice}. ${result}`;
+}
+</script>
+
+# Cristiano Ronaldo Animation
+
+Use the arrow keys to move Cristiano Ronaldo around the screen!
+
+<style>
+  #gameArea {
+    width: 100%;
+    height: 500px;
+    position: relative;
+    background-color: #f0f0f0;
+    border: 2px solid #000;
+    overflow: hidden;
+  }
+
+  #ronaldo {
+    position: absolute;
+    width: 100px; /* Adjust size as needed */
+    height: 100px; /* Adjust size as needed */
+    background-image: url('images/ronaldo.jpg'); /* Updated image path */
+    background-size: cover;
+  }
+</style>
+
+<div id="gameArea">
+  <div id="ronaldo"></div>
+</div>
+
+<script>
+  const ronaldo = document.getElementById('ronaldo');
+  const gameArea = document.getElementById('gameArea');
+  let position = { x: 0, y: 0 };
+
+  function moveRonaldo(dx, dy) {
+    position.x += dx;
+    position.y += dy;
+
+    // Ensure Ronaldo stays within bounds
+    position.x = Math.max(0, Math.min(position.x, gameArea.clientWidth - ronaldo.clientWidth));
+    position.y = Math.max(0, Math.min(position.y, gameArea.clientHeight - ronaldo.clientHeight));
+
+    ronaldo.style.left = position.x + 'px';
+    ronaldo.style.top = position.y + 'px';
+  }
+
+  document.addEventListener('keydown', function(event) {
+    switch (event.key) {
+      case 'ArrowUp':
+        moveRonaldo(0, -10);
+        break;
+      case 'ArrowDown':
+        moveRonaldo(0, 10);
+        break;
+      case 'ArrowLeft':
+        moveRonaldo(-10, 0);
+        break;
+      case 'ArrowRight':
+        moveRonaldo(10, 0);
+        break;
+    }
+  });
+</script>
