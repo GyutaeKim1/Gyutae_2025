@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", function() {
 </script> -->
 
 <div class="typewriter">
-    <h1>Good Morning or night, Welcome to Gyuae's Blog</h1>
+    <h1>Good Morning or night, Welcome to Gyutae's Blog</h1>
 </div>
 
 <br>
