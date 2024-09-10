@@ -217,5 +217,6 @@ Welcome to my GitHub Pages site! Here’s a quick overview of the sections avail
 
 <link rel="stylesheet" href="/assets/css/custom.css">
 
+<button id="theme-switcher">Switch Theme</button>
 
 

@@ -87,3 +87,7 @@ permalink: /soccer/
     </script>
 </body>
 </html>
+
+<p>Som Heung-min is my favorite soccer player</p>
+
+![Son]({{site.baseurl}}/images/Son.png)

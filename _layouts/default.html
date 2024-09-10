@@ -1,21 +1,2 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ page.title }}</title>
-
-  <!-- Link the default theme (Cayman) by default -->
-  <link id="theme-stylesheet" rel="stylesheet" href="{{ site.baseurl }}/assets/css/cayman.css">
-</head>
-<body>
-  <!-- Content -->
-  {{ content }}
-
-  <!-- Theme Toggle Button -->
-  <button id="theme-toggle">Toggle Theme</button>
-
-  <!-- Link to the theme-toggle JavaScript file -->
-  <script src="{{ site.baseurl }}/assets/js/theme-toggle.js"></script>
-</body>
-</html>
+<link id="theme-stylesheet" rel="stylesheet" href="{{ '/assets/css/jekyll-theme-cayman.css' | relative_url }}">
+<script src="{{ '/assets/js/theme-switcher.js' | relative_url }}"></script>
