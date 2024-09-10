@@ -7,7 +7,8 @@ image: /images/mario_animation.png
 hide: true
 ---
 
- Welcome! Hi, my name is Gyutae. My journey starts here...
+ <span style="color: blue;">Welcome! Hi, my name is Gyutae. My journey starts here...</span>
+
 
 <!-- Liquid:  statements -->
 
@@ -223,11 +224,11 @@ Welcome to my GitHub Pages site! Here’s a quick overview of the sections avail
 
 # Rock Paper Scissors Game
 
-Here is a simple Rock, Paper, Scissors game you can play directly in your browser!
+<span style="color: yellow;">Here is a simple Rock, Paper, Scissors game you can play directly in your browser!</span>
 
 ## Instructions
 
-Click on one of the buttons below to make your choice. The computer will then make its choice, and you'll see the result.
+<span style="color: red;">Click on one of the buttons below to make your choice. The computer will then make its choice, and you'll see the result.</span>
 
 <div id="game">
     <button onclick="play('rock')">Rock</button>
@@ -260,64 +261,85 @@ function play(userChoice) {
 }
 </script>
 
-# Cristiano Ronaldo Animation
+# Cristiano Ronaldo Chasing Messi Animation
 
-Use the arrow keys to move Cristiano Ronaldo around the screen!
+Use the W, A, S, and D keys to move Cristiano Ronaldo and catch Messi as he moves randomly!
 
-<style>
-  #gameArea {
-    width: 100%;
-    height: 500px;
-    position: relative;
-    background-color: #f0f0f0;
-    border: 2px solid #000;
-    overflow: hidden;
-  }
-
-  #ronaldo {
-    position: absolute;
-    width: 100px; /* Adjust size as needed */
-    height: 100px; /* Adjust size as needed */
-    background-image: url('images/ronaldo.jpg'); /* Updated image path */
-    background-size: cover;
-  }
-</style>
-
-<div id="gameArea">
-  <div id="ronaldo"></div>
+<div id="gameArea" style="width: 100%; height: 500px; position: relative; background-color: #f0f0f0; border: 2px solid #000; overflow: hidden;">
+  <div id="ronaldo" style="position: absolute; width: 100px; height: 100px; background-image: url('images/ronaldo.jpg'); background-size: cover;"></div>
+  <div id="messi" style="position: absolute; width: 100px; height: 100px; background-image: url('images/messi-world-cup.jpg'); background-size: cover;"></div>
 </div>
+
+<p>Score: <span id="score">0</span></p>
 
 <script>
   const ronaldo = document.getElementById('ronaldo');
+  const messi = document.getElementById('messi');
   const gameArea = document.getElementById('gameArea');
-  let position = { x: 0, y: 0 };
+  const scoreElement = document.getElementById('score');
+  let ronaldoPosition = { x: 0, y: 0 };
+  let messiPosition = { x: 300, y: 200 }; // Starting position for Messi
+  let score = 0;
 
+  // Function to move Ronaldo based on W, A, S, D keys
   function moveRonaldo(dx, dy) {
-    position.x += dx;
-    position.y += dy;
+    ronaldoPosition.x += dx;
+    ronaldoPosition.y += dy;
 
     // Ensure Ronaldo stays within bounds
-    position.x = Math.max(0, Math.min(position.x, gameArea.clientWidth - ronaldo.clientWidth));
-    position.y = Math.max(0, Math.min(position.y, gameArea.clientHeight - ronaldo.clientHeight));
+    ronaldoPosition.x = Math.max(0, Math.min(ronaldoPosition.x, gameArea.clientWidth - ronaldo.clientWidth));
+    ronaldoPosition.y = Math.max(0, Math.min(ronaldoPosition.y, gameArea.clientHeight - ronaldo.clientHeight));
 
-    ronaldo.style.left = position.x + 'px';
-    ronaldo.style.top = position.y + 'px';
+    ronaldo.style.left = ronaldoPosition.x + 'px';
+    ronaldo.style.top = ronaldoPosition.y + 'px';
+
+    checkCollision();
   }
 
+  // Function to move Messi randomly
+  function moveMessiRandomly() {
+    messiPosition.x = Math.random() * (gameArea.clientWidth - messi.clientWidth);
+    messiPosition.y = Math.random() * (gameArea.clientHeight - messi.clientHeight);
+
+    messi.style.left = messiPosition.x + 'px';
+    messi.style.top = messiPosition.y + 'px';
+  }
+
+  // Function to check for collision between Ronaldo and Messi
+  function checkCollision() {
+    const ronaldoRect = ronaldo.getBoundingClientRect();
+    const messiRect = messi.getBoundingClientRect();
+
+    if (!(ronaldoRect.right < messiRect.left ||
+          ronaldoRect.left > messiRect.right ||
+          ronaldoRect.bottom < messiRect.top ||
+          ronaldoRect.top > messiRect.bottom)) {
+      score++;
+      scoreElement.textContent = score;
+      moveMessiRandomly();
+    }
+  }
+
+  // Move Messi every 1 second (1000 milliseconds)
+  setInterval(moveMessiRandomly, 1000);
+
+  // Listen for W, A, S, D key presses to move Ronaldo
   document.addEventListener('keydown', function(event) {
     switch (event.key) {
-      case 'ArrowUp':
+      case 'w':
         moveRonaldo(0, -10);
         break;
-      case 'ArrowDown':
+      case 's':
         moveRonaldo(0, 10);
         break;
-      case 'ArrowLeft':
+      case 'a':
         moveRonaldo(-10, 0);
         break;
-      case 'ArrowRight':
+      case 'd':
         moveRonaldo(10, 0);
         break;
     }
   });
 </script>
+
+

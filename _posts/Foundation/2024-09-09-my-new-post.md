@@ -1,9 +1,9 @@
 ---
 layout: custom-layout
-title: Hello
-description: hello
+title: Plans
+description: plans
 type: blog
 comments: True
 ---
 
-Hello
+This week, I am planning to make a rock paper scissors game and add more description to my about page so that I can go above and beyond. 
