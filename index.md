@@ -342,7 +342,7 @@ function play(userChoice) {
 
 # Cristiano Ronaldo Chasing the World Cup Animation
 
-Use the W, A, S, and D keys to move Cristiano Ronaldo and catch the World Cup as it moves randomly!
+<span style="color: green;">Use the W, A, S, and D keys to move Cristiano Ronaldo and catch the World Cup as it moves randomly!</span>
 
 <div id="gameArea" style="width: 100%; height: 500px; position: relative; background-color: #f0f0f0; border: 2px solid #000; overflow: hidden;">
   <div id="ronaldo" style="position: absolute; width: 100px; height: 100px; background-image: url('images/ronaldo.jpg'); background-size: cover;"></div>
