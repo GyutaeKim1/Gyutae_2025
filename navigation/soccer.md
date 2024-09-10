@@ -4,6 +4,11 @@ title: Soccer
 permalink: /soccer/
 ---
 
+<div style="background-color: #f0f0f0; color: #333;">
+  <p style="color: #ff5733;">This is some content about soccer.</p>
+</div>
+
+
 ![Messi]({{site.baseurl}}/images/Messi.webp)
 
 <html lang="en">
