@@ -10,6 +10,85 @@ hide: true
  <span style="color: blue;">Welcome! Hi, my name is Gyutae. My journey starts here...</span>
 
 
+# welcome 
+
+<style>
+
+.typewriter h1 {
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  font-family: Monospace;
+  border-right: .015em solid orange; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: 0.015em; /* Adjust as needed */
+  animation: 
+    typing 15.0s steps(30, end) forwards,
+    blink-caret 1s step-end infinite;
+  animation-delay: 0ms;
+  animation-fill-mode: both;
+  color: #000000
+}
+
+/* The typing effect */
+@keyframes typing {
+  0% {
+    width: 0;
+  }
+  25%, 50%, 75% {
+    width: 100%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: white; }
+}
+
+h2 {
+    color: #FFFFEE;
+}
+
+h1 {
+  color: #FFFFFF
+}
+
+h1:hover {
+  font-size: 32px;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+  setTimeout(function() {
+      document.querySelector("body").classList.add("loaded");
+  }, 2000)
+});
+</script>
+
+<!-- <script>
+document.addEventListener("DOMContentLoaded", function() {
+  const words = ["Welcome", "to", "Srijan's", "Blog"];
+  let wordIndex = 0;
+  
+  function updateWord() {
+    const titleElement = document.querySelector(".typewriter h1");
+    titleElement.textContent = words[wordIndex];
+    wordIndex = (wordIndex + 1) % words.length;
+  }
+
+  setInterval(updateWord, 1); // Change word every 3.5 seconds
+});
+</script> -->
+
+<div class="typewriter">
+    <h1>Good Morning or night, Welcome to Gyuae's Blog</h1>
+</div>
+
+<br>
+
 <!-- Liquid:  statements -->
 
 <!--- Concatenation of site URL to frontmatter image  --->
@@ -261,24 +340,24 @@ function play(userChoice) {
 }
 </script>
 
-# Cristiano Ronaldo Chasing Messi Animation
+# Cristiano Ronaldo Chasing the World Cup Animation
 
-Use the W, A, S, and D keys to move Cristiano Ronaldo and catch Messi as he moves randomly!
+Use the W, A, S, and D keys to move Cristiano Ronaldo and catch the World Cup as it moves randomly!
 
 <div id="gameArea" style="width: 100%; height: 500px; position: relative; background-color: #f0f0f0; border: 2px solid #000; overflow: hidden;">
   <div id="ronaldo" style="position: absolute; width: 100px; height: 100px; background-image: url('images/ronaldo.jpg'); background-size: cover;"></div>
-  <div id="messi" style="position: absolute; width: 100px; height: 100px; background-image: url('images/messi-world-cup.jpg'); background-size: cover;"></div>
+  <div id="worldcup" style="position: absolute; width: 100px; height: 100px; background-image: url('images/worldcup.jpg'); background-size: cover;"></div>
 </div>
 
 <p>Score: <span id="score">0</span></p>
 
 <script>
   const ronaldo = document.getElementById('ronaldo');
-  const messi = document.getElementById('messi');
+  const worldcup = document.getElementById('worldcup');
   const gameArea = document.getElementById('gameArea');
   const scoreElement = document.getElementById('score');
   let ronaldoPosition = { x: 0, y: 0 };
-  let messiPosition = { x: 300, y: 200 }; // Starting position for Messi
+  let worldcupPosition = { x: 300, y: 200 }; // Starting position for the World Cup
   let score = 0;
 
   // Function to move Ronaldo based on W, A, S, D keys
@@ -296,32 +375,32 @@ Use the W, A, S, and D keys to move Cristiano Ronaldo and catch Messi as he move
     checkCollision();
   }
 
-  // Function to move Messi randomly
-  function moveMessiRandomly() {
-    messiPosition.x = Math.random() * (gameArea.clientWidth - messi.clientWidth);
-    messiPosition.y = Math.random() * (gameArea.clientHeight - messi.clientHeight);
+  // Function to move the World Cup randomly
+  function moveWorldCupRandomly() {
+    worldcupPosition.x = Math.random() * (gameArea.clientWidth - worldcup.clientWidth);
+    worldcupPosition.y = Math.random() * (gameArea.clientHeight - worldcup.clientHeight);
 
-    messi.style.left = messiPosition.x + 'px';
-    messi.style.top = messiPosition.y + 'px';
+    worldcup.style.left = worldcupPosition.x + 'px';
+    worldcup.style.top = worldcupPosition.y + 'px';
   }
 
-  // Function to check for collision between Ronaldo and Messi
+  // Function to check for collision between Ronaldo and the World Cup
   function checkCollision() {
     const ronaldoRect = ronaldo.getBoundingClientRect();
-    const messiRect = messi.getBoundingClientRect();
+    const worldcupRect = worldcup.getBoundingClientRect();
 
-    if (!(ronaldoRect.right < messiRect.left ||
-          ronaldoRect.left > messiRect.right ||
-          ronaldoRect.bottom < messiRect.top ||
-          ronaldoRect.top > messiRect.bottom)) {
+    if (!(ronaldoRect.right < worldcupRect.left ||
+          ronaldoRect.left > worldcupRect.right ||
+          ronaldoRect.bottom < worldcupRect.top ||
+          ronaldoRect.top > worldcupRect.bottom)) {
       score++;
       scoreElement.textContent = score;
-      moveMessiRandomly();
+      moveWorldCupRandomly();
     }
   }
 
-  // Move Messi every 1 second (1000 milliseconds)
-  setInterval(moveMessiRandomly, 1000);
+  // Move the World Cup every 1 second (1000 milliseconds)
+  setInterval(moveWorldCupRandomly, 1000);
 
   // Listen for W, A, S, D key presses to move Ronaldo
   document.addEventListener('keydown', function(event) {
@@ -341,5 +420,3 @@ Use the W, A, S, and D keys to move Cristiano Ronaldo and catch Messi as he move
     }
   });
 </script>
-
-
