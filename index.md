@@ -10,6 +10,8 @@ hide: true
  <span style="color: blue;">Welcome! Hi, my name is Gyutae. My journey starts here...</span>
 
 
+Hala Real Madrid! Best soccer club in the world. Cristiano the GOAT
+
 # welcome 
 
 <style>
