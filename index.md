@@ -289,10 +289,11 @@ Welcome to my GitHub Pages site! Here’s a quick overview of the sections avail
 
 ## Notebooks Submenu
 
-- [Planning Document](notebooks/planning_document.ipynb)
-- [JavaScript Notebook](notebooks/javascript_notebook.ipynb)
-- [Analysis Notebook](notebooks/analysis_notebook.ipynb)
-- [Jupyter Notebook](notebooks/Untitled.ipynb)
+- [Planning Document]({{site.baseurl}}/plans/sprint1)
+- [JavaScript Notebook]({{site.baseurl}}/jscell/sprint1)
+- [About Page]({{site.baseurl}}/about/sprint1)
+- [Jupyter Notebook]({{site.baseurl}}/2024/09/16/jupyter_IPYNB_2_.html)
+
 
 
 
