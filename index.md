@@ -521,11 +521,15 @@ function play(userChoice) {
   startGame();
 </script>
 
-# Tic-Tac-Toe Game
+# Tic-Tac-Toe Game (Play Against AI or 2 Players)
 
-Play Tic-Tac-Toe below by clicking the squares!
+Choose your game mode, then click the squares to play!
 
 <div style="text-align: center;">
+  <button onclick="setMode('ai')">Play Against AI</button>
+  <button onclick="setMode('twoPlayer')">Play Two Player Mode</button>
+  <br><br>
+
   <table id="ticTacToeBoard" style="margin: 0 auto; border: 2px solid black; border-collapse: collapse;">
     <tr>
       <td onclick="makeMove(this, 0)" style="width: 100px; height: 100px; text-align: center; font-size: 36px; border: 2px solid black;"></td>
@@ -543,6 +547,7 @@ Play Tic-Tac-Toe below by clicking the squares!
       <td onclick="makeMove(this, 8)" style="width: 100px; height: 100px; text-align: center; font-size: 36px; border: 2px solid black;"></td>
     </tr>
   </table>
+
   <br>
   <button onclick="resetGame()">Reset</button>
   <p id="gameStatus"></p>
@@ -552,6 +557,7 @@ Play Tic-Tac-Toe below by clicking the squares!
   let board = ["", "", "", "", "", "", "", "", ""];
   let currentPlayer = "X";
   let gameActive = true;
+  let gameMode = "twoPlayer"; // Default mode
 
   const winningConditions = [
     [0, 1, 2],
@@ -564,26 +570,60 @@ Play Tic-Tac-Toe below by clicking the squares!
     [2, 4, 6]
   ];
 
+  function setMode(mode) {
+    gameMode = mode;
+    resetGame();
+    document.getElementById("gameStatus").innerHTML = `Game mode: ${mode === 'ai' ? 'AI Mode' : 'Two Player Mode'}`;
+  }
+
   function makeMove(cell, index) {
     if (board[index] !== "" || !gameActive) return;
-    
+
     board[index] = currentPlayer;
     cell.innerHTML = currentPlayer;
-    
+
     checkWinner();
-    
-    currentPlayer = currentPlayer === "X" ? "O" : "X";
+
+    if (gameActive) {
+      if (gameMode === "ai") {
+        currentPlayer = "O"; // AI always plays "O"
+        aiMove();
+      } else {
+        currentPlayer = currentPlayer === "X" ? "O" : "X";
+      }
+    }
+  }
+
+  function aiMove() {
+    let availableCells = board
+      .map((val, idx) => (val === "" ? idx : null))
+      .filter(val => val !== null);
+
+    if (availableCells.length === 0 || !gameActive) return;
+
+    // AI picks a random available move
+    let aiChoice = availableCells[Math.floor(Math.random() * availableCells.length)];
+    board[aiChoice] = "O";
+
+    const cell = document.querySelectorAll("td")[aiChoice];
+    cell.innerHTML = "O";
+
+    checkWinner();
+
+    if (gameActive) {
+      currentPlayer = "X"; // Return control to the player
+    }
   }
 
   function checkWinner() {
     let roundWon = false;
-    
+
     for (let i = 0; i < winningConditions.length; i++) {
       const winCondition = winningConditions[i];
       const a = board[winCondition[0]];
       const b = board[winCondition[1]];
       const c = board[winCondition[2]];
-      
+
       if (a === "" || b === "" || c === "") continue;
       if (a === b && b === c) {
         roundWon = true;
@@ -608,9 +648,8 @@ Play Tic-Tac-Toe below by clicking the squares!
     gameActive = true;
     currentPlayer = "X";
     document.getElementById("gameStatus").innerHTML = "";
-    
+
     const cells = document.querySelectorAll("td");
     cells.forEach(cell => cell.innerHTML = "");
   }
 </script>
-
