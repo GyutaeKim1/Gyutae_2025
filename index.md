@@ -549,7 +549,7 @@ Choose your game mode, then click the squares to play!
   </table>
 
   <br>
-  <button onclick="resetGame()">Reset</button>
+  <button onclick="resetGame()">Reset Game</button>
   <p id="gameStatus"></p>
 </div>
 
@@ -595,43 +595,88 @@ Choose your game mode, then click the squares to play!
   }
 
   function aiMove() {
-    let availableCells = board
-      .map((val, idx) => (val === "" ? idx : null))
-      .filter(val => val !== null);
+    let bestMove = minimax(board, "O").index;
 
-    if (availableCells.length === 0 || !gameActive) return;
+    if (bestMove !== undefined && gameActive) {
+      board[bestMove] = "O";
 
-    // AI picks a random available move
-    let aiChoice = availableCells[Math.floor(Math.random() * availableCells.length)];
-    board[aiChoice] = "O";
+      const cell = document.querySelectorAll("td")[bestMove];
+      cell.innerHTML = "O";
 
-    const cell = document.querySelectorAll("td")[aiChoice];
-    cell.innerHTML = "O";
+      checkWinner();
 
-    checkWinner();
-
-    if (gameActive) {
-      currentPlayer = "X"; // Return control to the player
+      if (gameActive) {
+        currentPlayer = "X"; // Return control to the player
+      }
     }
   }
 
-  function checkWinner() {
-    let roundWon = false;
+  function minimax(newBoard, player) {
+    const availableMoves = newBoard
+      .map((val, idx) => (val === "" ? idx : null))
+      .filter(val => val !== null);
 
-    for (let i = 0; i < winningConditions.length; i++) {
-      const winCondition = winningConditions[i];
-      const a = board[winCondition[0]];
-      const b = board[winCondition[1]];
-      const c = board[winCondition[2]];
+    // Terminal states: win, lose, or tie
+    if (checkWin(newBoard, "X")) return { score: -10 };
+    if (checkWin(newBoard, "O")) return { score: 10 };
+    if (availableMoves.length === 0) return { score: 0 };
 
-      if (a === "" || b === "" || c === "") continue;
-      if (a === b && b === c) {
-        roundWon = true;
-        break;
+    let moves = [];
+
+    // Loop through available moves
+    for (let i = 0; i < availableMoves.length; i++) {
+      let move = {};
+      move.index = availableMoves[i];
+
+      newBoard[availableMoves[i]] = player;
+
+      if (player === "O") {
+        let result = minimax(newBoard, "X");
+        move.score = result.score;
+      } else {
+        let result = minimax(newBoard, "O");
+        move.score = result.score;
+      }
+
+      newBoard[availableMoves[i]] = "";
+      moves.push(move);
+    }
+
+    // Find the best move for AI
+    let bestMove;
+    if (player === "O") {
+      let bestScore = -Infinity;
+      for (let i = 0; i < moves.length; i++) {
+        if (moves[i].score > bestScore) {
+          bestScore = moves[i].score;
+          bestMove = i;
+        }
+      }
+    } else {
+      let bestScore = Infinity;
+      for (let i = 0; i < moves.length; i++) {
+        if (moves[i].score < bestScore) {
+          bestScore = moves[i].score;
+          bestMove = i;
+        }
       }
     }
 
-    if (roundWon) {
+    return moves[bestMove];
+  }
+
+  function checkWin(board, player) {
+    for (let i = 0; i < winningConditions.length; i++) {
+      const winCondition = winningConditions[i];
+      if (winCondition.every(idx => board[idx] === player)) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  function checkWinner() {
+    if (checkWin(board, currentPlayer)) {
       gameActive = false;
       document.getElementById("gameStatus").innerHTML = `Player ${currentPlayer} wins!`;
       return;
