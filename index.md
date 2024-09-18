@@ -437,7 +437,8 @@ function play(userChoice) {
   const canvas = document.getElementById("snakeGame");
   const ctx = canvas.getContext("2d");
   const box = 20;
-  let snake, food, direction, gameOver, game;
+  let snake, food, powerUp, direction, gameOver, game;
+  let gameSpeed = 100; // Initial game speed
 
   const startButton = document.getElementById("startButton");
   startButton.addEventListener("click", startGame);
@@ -450,10 +451,14 @@ function play(userChoice) {
       x: Math.floor(Math.random() * 20) * box,
       y: Math.floor(Math.random() * 20) * box
     };
+    powerUp = null; // No power-up at the start
     direction = null;
     gameOver = false;
+    gameSpeed = 100;
     startButton.style.display = "none";
-    game = setInterval(drawGame, 100);
+    clearInterval(game); // Clear any existing game intervals
+    game = setInterval(drawGame, gameSpeed);
+    generatePowerUp(); // Generate a single power-up
   }
 
   function setDirection(event) {
@@ -485,6 +490,12 @@ function play(userChoice) {
     ctx.fillStyle = "red";
     ctx.fillRect(food.x, food.y, box, box);
 
+    // Draw power-up if it exists
+    if (powerUp) {
+      ctx.fillStyle = "orange";
+      ctx.fillRect(powerUp.x, powerUp.y, box, box);
+    }
+
     // Move snake
     let snakeX = snake[0].x;
     let snakeY = snake[0].y;
@@ -506,12 +517,19 @@ function play(userChoice) {
 
     let newHead = { x: snakeX, y: snakeY };
 
+    // Check for power-up collision
+    if (powerUp && snakeX === powerUp.x && snakeY === powerUp.y) {
+      growSnakeByThree();
+      powerUp = null; // Remove the power-up after it is consumed
+      setTimeout(generatePowerUp, Math.random() * 10000 + 5000); // Generate a new power-up after a delay
+    }
+
     // Game over condition
     if (snakeX < 0 || snakeY < 0 || snakeX >= canvas.width || snakeY >= canvas.height || collision(newHead, snake)) {
       gameOver = true;
     }
 
-    snake.unshift(newHead);
+    snake.unshift(newHead); // Add the new head to the front of the snake
   }
 
   function collision(head, array) {
@@ -523,7 +541,20 @@ function play(userChoice) {
     return false;
   }
 
+  function generatePowerUp() {
+    powerUp = {
+      x: Math.floor(Math.random() * 20) * box,
+      y: Math.floor(Math.random() * 20) * box
+    };
+  }
+
+  function growSnakeByThree() {
+    // Add three segments to the snake
+    for (let i = 0; i < 3; i++) {
+      snake.push({ x: snake[snake.length - 1].x, y: snake[snake.length - 1].y });
+    }
+  }
+
   // Start the game initially
   startGame();
 </script>
-
