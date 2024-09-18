@@ -297,7 +297,7 @@ Welcome to my GitHub Pages site! Here’s a quick overview of the sections avail
 # Games
 
 - [Calculator]({{site.baseurl}}/calculator/sprint1)
-
+- [Cookie Clicker]({{site.baseurl}}/cookie_clicker/sprint1)
 
 
 <link rel="stylesheet" href="/assets/css/custom.css">
