@@ -427,6 +427,8 @@ function play(userChoice) {
   });
 </script>
 
+# Snake Game 
+
 <h2>Snake Game</h2>
 <canvas id="snakeGame" width="400" height="400" style="border:1px solid black;"></canvas>
 <button id="startButton" style="display:none;">Start Game</button>
