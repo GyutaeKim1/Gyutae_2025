@@ -698,3 +698,4 @@ Choose your game mode, then click the squares to play!
     cells.forEach(cell => cell.innerHTML = "");
   }
 </script>
+
