@@ -5,6 +5,13 @@ This guide provides a complete example of integrating the iTunes API into a web 
 
 ## Full Code Example
 
+# iTunes API Integration Guide
+
+## Overview
+This guide provides a complete example of integrating the iTunes API into a web project. It includes a setup for searching and displaying music, saving recent queries, and styling the page, with additional features for searching by genre and era and managing recent searches.
+
+## Full Code Example
+
 ```html
 
 <html lang="en">
@@ -55,20 +62,39 @@ This guide provides a complete example of integrating the iTunes API into a web 
         #recent-queries li {
             margin: 5px 0;
         }
+
+        #search-by-genre, #search-by-era {
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
     <h1>Search for Music</h1>
     <input type="text" id="search-term" placeholder="Enter artist or song name">
     <button id="search-btn">Search</button>
+    
+    <h2>Search by Genre</h2>
+    <input type="text" id="search-genre" placeholder="Enter genre">
+    <button id="search-by-genre-btn">Search by Genre</button>
+    
+    <h2>Search by Era</h2>
+    <input type="text" id="search-era" placeholder="Enter era (e.g., 2000s)">
+    <button id="search-by-era-btn">Search by Era</button>
+
     <h2>Recent Searches</h2>
     <ul id="recent-queries"></ul>
+    <button id="clear-recent-queries">Clear Recent Searches</button>
     <div id="results"></div>
 
     <script>
         // Initialize elements
         const searchBtn = document.getElementById("search-btn");
         const searchTermInput = document.getElementById("search-term");
+        const searchGenreInput = document.getElementById("search-genre");
+        const searchEraInput = document.getElementById("search-era");
+        const searchByGenreBtn = document.getElementById("search-by-genre-btn");
+        const searchByEraBtn = document.getElementById("search-by-era-btn");
+        const clearRecentQueriesBtn = document.getElementById("clear-recent-queries");
         const resultsDiv = document.getElementById("results");
         const recentQueriesList = document.getElementById("recent-queries");
 
@@ -93,6 +119,12 @@ This guide provides a complete example of integrating the iTunes API into a web 
             });
         }
 
+        // Function to clear recent queries
+        function clearRecentQueries() {
+            localStorage.removeItem("recentQueries");
+            displayRecentQueries();
+        }
+
         // Function to display search results
         function displayResults(results) {
             resultsDiv.innerHTML = "";
@@ -108,12 +140,31 @@ This guide provides a complete example of integrating the iTunes API into a web 
             });
         }
 
+        // Function to handle search
+        function performSearch(query) {
+            fetch(`https://itunes.apple.com/search?term=${query}&media=music`)
+                .then(response => response.json())
+                .then(data => {
+                    displayResults(data.results);
+                })
+                .catch(error => console.error('Error fetching data:', error));
+        }
+
         // Event listener for search button
         searchBtn.addEventListener("click", function() {
             const searchTerm = searchTermInput.value;
             if (searchTerm) {
                 saveQuery(searchTerm);
-                fetch(`https://itunes.apple.com/search?term=${searchTerm}&media=music`)
+                performSearch(searchTerm);
+            }
+        });
+
+        // Event listener for search by genre button
+        searchByGenreBtn.addEventListener("click", function() {
+            const genre = searchGenreInput.value;
+            if (genre) {
+                saveQuery(`Genre: ${genre}`);
+                fetch(`https://itunes.apple.com/search?term=${genre}&media=music`)
                     .then(response => response.json())
                     .then(data => {
                         displayResults(data.results);
@@ -121,6 +172,23 @@ This guide provides a complete example of integrating the iTunes API into a web 
                     .catch(error => console.error('Error fetching data:', error));
             }
         });
+
+        // Event listener for search by era button
+        searchByEraBtn.addEventListener("click", function() {
+            const era = searchEraInput.value;
+            if (era) {
+                saveQuery(`Era: ${era}`);
+                fetch(`https://itunes.apple.com/search?term=${era}&media=music`)
+                    .then(response => response.json())
+                    .then(data => {
+                        displayResults(data.results);
+                    })
+                    .catch(error => console.error('Error fetching data:', error));
+            }
+        });
+
+        // Event listener for clear recent queries button
+        clearRecentQueriesBtn.addEventListener("click", clearRecentQueries);
 
         // Load recent queries on page load
         window.addEventListener("load", displayRecentQueries);
