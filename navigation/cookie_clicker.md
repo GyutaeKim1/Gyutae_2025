@@ -4,7 +4,7 @@ title: Cookie Clicker
 search_exclude: true
 permalink: /cookie/
 ---
-
+# Cookie Clicker
 
 <head>
     <meta charset="UTF-8">
