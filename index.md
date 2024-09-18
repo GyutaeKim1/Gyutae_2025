@@ -294,6 +294,9 @@ Welcome to my GitHub Pages site! Here’s a quick overview of the sections avail
 - [About Page]({{site.baseurl}}/about/sprint1)
 - [Jupyter Notebook]({{site.baseurl}}/2024/09/16/jupyter_IPYNB_2_.html)
 
+# Games
+
+- [Calculator]({{site.baseurl}}/calculator/sprint1)
 
 
 
