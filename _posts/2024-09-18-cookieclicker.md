@@ -6,21 +6,22 @@ toc: True
 comments: True
 ---
 
-# Cookie Clicker
-
-<p>Fancy Cookie Clicker</p>
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie Clicker</title>
     <style>
         body {
             text-align: center;
             font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
         }
         #cookie {
             width: 200px;
             cursor: pointer;
+            margin-top: 20px;
         }
         #shop {
             margin-top: 20px;
@@ -31,6 +32,15 @@ comments: True
             display: flex;
             align-items: center;
             justify-content: center;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #45a049;
         }
         .icon {
             width: 20px;
@@ -42,45 +52,61 @@ comments: True
         }
         #save-load input {
             width: 300px;
-            margin: 10px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
         }
         #messages {
             margin-top: 20px;
             color: green;
+            font-weight: bold;
+        }
+        #game p {
+            margin: 5px 0;
         }
     </style>
 </head>
 <body>
+    <h1>Fancy Cookie Clicker</h1>
     <div id="game">
+        <!-- Cookie Section -->
         <div id="cookie-section">
             <img id="cookie" src="../images/cookie_icon.png" alt="Cookie">
             <audio id="click-sound" src="../sound/sound1.mp3"></audio>
         </div>
+        <!-- Display Cookies and Cookies per Second -->
         <p id="cookie-count">Cookies: 0</p>
         <p id="cookies-per-second">Cookies per second: 0</p>
+        <!-- Shop Section -->
         <div id="shop">
+            <!-- Granny Purchase -->
             <button id="buy-granny">
                 <img src="../images/grandma-cookie-removebg-preview.png" class="icon" alt="Granny Icon">
                 Buy Granny (Cost: <span id="granny-cost">100</span> cookies)
             </button>
             <p id="granny-count">Grannies: 0 (each makes 1 cookie per second)</p>
+            <!-- Factory Purchase -->
             <button id="buy-factory">
                 <img src="../images/factory-cookie-removebg-preview.png" class="icon" alt="Factory Icon">
                 Buy Factory (Cost: <span id="factory-cost">500</span> cookies)
             </button>
             <p id="factory-count">Factories: 0 (each makes 5 cookies per second)</p>
+            <!-- Plane Purchase -->
             <button id="buy-plane">
                 <img src="../images/plane-icon-f.png" class="icon" alt="Plane Icon">
                 Buy Plane (Cost: <span id="plane-cost">2000</span> cookies)
             </button>
             <p id="plane-count">Planes: 0 (each makes 10 cookies per second)</p>
+            <!-- Worldwide Factory Purchase -->
             <button id="buy-worldwide-factory">
                 <img src="../images/factories-cookie-removebg-preview.png" class="icon" alt="Worldwide Factory Icon">
                 Buy Worldwide Factory Network (Cost: <span id="worldwide-factory-cost">100,000</span> cookies)
             </button>
             <p id="worldwide-factory-count">Worldwide Factories: 0 (each makes 300 cookies per second)</p>
         </div>
+        <!-- Milestone Messages -->
         <div id="messages"></div>
+        <!-- Save/Load Game Section -->
         <div id="save-load">
             <button id="save-game">Save Game</button>
             <button id="load-game">Load Game</button>
@@ -89,7 +115,7 @@ comments: True
     </div>
     <script>
         let cookies = 0;
-        let totalCookies = 0; // Tracks total cookies made
+        let totalCookies = 0;
         let cookiesPerSecond = 0;
         let grannyCost = 100;
         let factoryCost = 500;
@@ -112,19 +138,18 @@ comments: True
         const planeCostDisplay = document.getElementById("plane-cost");
         const worldwideFactoryCostDisplay = document.getElementById("worldwide-factory-cost");
         const messageDisplay = document.getElementById("messages");
-        // Milestones for total cookies produced
+        // Milestones and Messages
         let milestones = [100, 500, 1000, 5000, 100000, 1000000, 10000000];
         let messages = [
             "You've produced your first 100 cookies!",
             "People are starting to buy them!",
             "People like your cookies!",
             "Your cookies are being sold in several countries!",
-            "A renowned chef declared that you make the best cookies in the world",
+            "A renowned chef declared that you make the best cookies in the world!",
             "Your cookies are known worldwide!",
-            "You have the most successful cookie brand in the world",
+            "You have the most successful cookie brand in the world!",
         ];
         let milestoneIndex = 0;
-        // Function to update the displayed cookie count and cookies per second
         function updateDisplay() {
             cookieCountDisplay.innerText = `Cookies: ${cookies}`;
             cookiesPerSecondDisplay.innerText = `Cookies per second: ${cookiesPerSecond}`;
@@ -137,7 +162,6 @@ comments: True
             planeCostDisplay.innerText = planeCost;
             worldwideFactoryCostDisplay.innerText = worldwideFactoryCost;
         }
-        // Function to show milestone messages based on total cookies produced
         function showMilestoneMessage() {
             if (milestoneIndex < milestones.length && totalCookies >= milestones[milestoneIndex]) {
                 messageDisplay.innerText = messages[milestoneIndex];
@@ -145,7 +169,6 @@ comments: True
                 setTimeout(() => { messageDisplay.innerText = ""; }, 3000);
             }
         }
-        // Save game progress
         function saveGame() {
             const gameState = {
                 cookies,
@@ -161,15 +184,14 @@ comments: True
                 worldwideFactoryCount,
                 milestoneIndex
             };
-            const saveCode = btoa(JSON.stringify(gameState)); // Convert object to a base64 string
-            document.getElementById("save-code").value = saveCode; // Display save code in the input field
+            const saveCode = btoa(JSON.stringify(gameState));
+            document.getElementById("save-code").value = saveCode;
         }
-        // Load game progress
         function loadGame() {
             const saveCode = document.getElementById("save-code").value;
             if (saveCode) {
                 try {
-                    const gameState = JSON.parse(atob(saveCode)); // Decode the base64 string and parse JSON
+                    const gameState = JSON.parse(atob(saveCode));
                     cookies = gameState.cookies;
                     totalCookies = gameState.totalCookies;
                     cookiesPerSecond = gameState.cookiesPerSecond;
@@ -182,70 +204,64 @@ comments: True
                     planeCount = gameState.planeCount;
                     worldwideFactoryCount = gameState.worldwideFactoryCount;
                     milestoneIndex = gameState.milestoneIndex;
-                    updateDisplay(); // Update UI with loaded data
+                    updateDisplay();
                 } catch (error) {
                     console.error("Invalid save code", error);
                     alert("Invalid save code. Please try again.");
                 }
             }
         }
-        // Event listeners for save/load buttons
         document.getElementById("save-game").addEventListener("click", saveGame);
         document.getElementById("load-game").addEventListener("click", loadGame);
-        // Click event to add 1 cookie on each click
         cookie.addEventListener("click", () => {
             cookies += 1;
-            totalCookies += 1; // Increases total cookies count
+            totalCookies += 1;
             clickSound.play();
             updateDisplay();
             showMilestoneMessage();
         });
-        // Buy granny event
         document.getElementById("buy-granny").addEventListener("click", () => {
             if (cookies >= grannyCost) {
                 cookies -= grannyCost;
                 grannyCount++;
-                cookiesPerSecond += 1; // each granny adds 1 cookie per second
-                grannyCost = Math.floor(grannyCost * 1.15); // increase granny cost slightly
+                cookiesPerSecond += 1;
+                grannyCost = Math.floor(grannyCost * 1.2);
                 updateDisplay();
             }
         });
-        // Buy factory event
         document.getElementById("buy-factory").addEventListener("click", () => {
             if (cookies >= factoryCost) {
                 cookies -= factoryCost;
                 factoryCount++;
-                cookiesPerSecond += 5; // each factory adds 5 cookies per second
-                factoryCost = Math.floor(factoryCost * 1.15); // increase factory cost slightly
+                cookiesPerSecond += 5;
+                factoryCost = Math.floor(factoryCost * 1.2);
                 updateDisplay();
             }
         });
-        // Buy plane event
         document.getElementById("buy-plane").addEventListener("click", () => {
             if (cookies >= planeCost) {
                 cookies -= planeCost;
                 planeCount++;
-                cookiesPerSecond += 10; // each plane adds 10 cookies per second
-                planeCost = Math.floor(planeCost * 1.2); // increase plane cost more significantly
+                cookiesPerSecond += 10;
+                planeCost = Math.floor(planeCost * 1.2);
                 updateDisplay();
             }
         });
-        // Buy worldwide factory event
         document.getElementById("buy-worldwide-factory").addEventListener("click", () => {
             if (cookies >= worldwideFactoryCost) {
                 cookies -= worldwideFactoryCost;
                 worldwideFactoryCount++;
-                cookiesPerSecond += 300; // each worldwide factory adds 300 cookies per second
-                worldwideFactoryCost = Math.floor(worldwideFactoryCost * 1.25); // increase worldwide factory cost more significantly
+                cookiesPerSecond += 300;
+                worldwideFactoryCost = Math.floor(worldwideFactoryCost * 1.2);
                 updateDisplay();
             }
         });
-        // Add cookies per second from grannies, factories, planes, and worldwide factories
         setInterval(() => {
             cookies += cookiesPerSecond;
-            totalCookies += cookiesPerSecond; // Increment total cookies
+            totalCookies += cookiesPerSecond;
             updateDisplay();
             showMilestoneMessage();
         }, 1000);
     </script>
 </body>
+</html>
