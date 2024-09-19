@@ -104,8 +104,8 @@ comments: True
     var container = document.getElementById("grid_container");
     var http_source = "https://upload.wikimedia.org/wikipedia/commons/";
     var living_in_the_world = [
-        {"flag": "thumb/a/a9/Flag_of_South_Korea_%281984–1997%29.svg/640px-Flag_of_South_Korea_%281984–1997%29.svg.png", "greeting": "Hi", "description": "Korea - 10 years"},
-        {"flag": "0/01/Flag_of_California.svg", "greeting": "Hey", "description": "California - 5 years"},
+        {"flag": "thumb/a/a9/Flag_of_South_Korea_%281984–1997%29.svg/640px-Flag_of_South_Korea_%281984–1997%29.svg.png", "description": "Korea - 10 years"},
+        {"flag": "0/01/Flag_of_California.svg", "description": "California - 5 years"},
     ]; 
     
     for (const location of living_in_the_world) {
