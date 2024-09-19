@@ -296,10 +296,14 @@ Welcome to my GitHub Pages site! Here’s a quick overview of the sections avail
 
 # Games
 
-- [Calculator]({{site.baseurl}}/binarycalculator/sprint1)
 - [Cookie Clicker]({{site.baseurl}}/cookieclicker/sprint1)
 - [Tic-Tac-Toe]({{site.baseurl}}/tictactoe/sprint1)
 - [Snake Game]({{site.baseurl}}/snake/sprint1)
+
+# Other Stuff
+
+- [Calculator]({{site.baseurl}}/binarycalculator/sprint1)
+
 
 <link rel="stylesheet" href="/assets/css/custom.css">
 
