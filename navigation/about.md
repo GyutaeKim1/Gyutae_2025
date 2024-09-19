@@ -1,7 +1,9 @@
 ---
-layout: page
+layout: post
 title: About
 permalink: /about/
+toc: True
+comments: True
 ---
 
 Hi, my name is Gyutae Kim. I am a sophomore in Del Norte Highschool, and I am taking AP CSP. 
