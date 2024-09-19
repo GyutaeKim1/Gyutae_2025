@@ -296,8 +296,8 @@ Welcome to my GitHub Pages site! Here’s a quick overview of the sections avail
 
 # Games
 
-- [Calculator]({{site.baseurl}}/calculator/sprint1)
-- [Cookie Clicker]({{site.baseurl}}/cookie_clicker/sprint1)
+- [Calculator]({{site.baseurl}}/binarycalculator/sprint1)
+- [Cookie Clicker]({{site.baseurl}}/cookieclicker/sprint1)
 - [Tic-Tac-Toe]({{site.baseurl}}/tictactoe/sprint1)
 
 

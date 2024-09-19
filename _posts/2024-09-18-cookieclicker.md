@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Cookie Cliker
-permalink: /cookie_clicker/sprint1
+permalink: /cookieclicker/sprint1
 toc: True
 comments: True
 ---
