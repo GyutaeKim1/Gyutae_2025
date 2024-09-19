@@ -3,14 +3,10 @@
 ## Overview
 This guide provides a complete example of integrating the iTunes API into a web project. It includes a setup for searching and displaying music, saving recent queries, and styling the page.
 
-## Full Code Example
-
 # iTunes API Integration Guide
 
 ## Overview
 This guide provides a complete example of integrating the iTunes API into a web project. It includes a setup for searching and displaying music, saving recent queries, and styling the page, with additional features for searching by genre and era and managing recent searches.
-
-## Full Code Example
 
 ```html
 
@@ -87,7 +83,6 @@ This guide provides a complete example of integrating the iTunes API into a web 
     <div id="results"></div>
 
     <script>
-        // Initialize elements
         const searchBtn = document.getElementById("search-btn");
         const searchTermInput = document.getElementById("search-term");
         const searchGenreInput = document.getElementById("search-genre");
@@ -98,7 +93,17 @@ This guide provides a complete example of integrating the iTunes API into a web 
         const resultsDiv = document.getElementById("results");
         const recentQueriesList = document.getElementById("recent-queries");
 
-        // Function to save query in local storage
+        // Genre mapping to genre ID
+        const genreMapping = {
+            "rock": 21,
+            "pop": 14,
+            "hip hop": 18,
+            "rap": 18,
+            "classical": 5,
+            "jazz": 11,
+            "country": 6
+        };
+
         function saveQuery(query) {
             let recentQueries = JSON.parse(localStorage.getItem("recentQueries")) || [];
             if (!recentQueries.includes(query)) {
@@ -108,7 +113,6 @@ This guide provides a complete example of integrating the iTunes API into a web 
             }
         }
 
-        // Function to display recent queries
         function displayRecentQueries() {
             const recentQueries = JSON.parse(localStorage.getItem("recentQueries")) || [];
             recentQueriesList.innerHTML = "";
@@ -119,13 +123,11 @@ This guide provides a complete example of integrating the iTunes API into a web 
             });
         }
 
-        // Function to clear recent queries
         function clearRecentQueries() {
             localStorage.removeItem("recentQueries");
             displayRecentQueries();
         }
 
-        // Function to display search results
         function displayResults(results) {
             resultsDiv.innerHTML = "";
             results.forEach(item => {
@@ -140,7 +142,6 @@ This guide provides a complete example of integrating the iTunes API into a web 
             });
         }
 
-        // Function to handle search
         function performSearch(query) {
             fetch(`https://itunes.apple.com/search?term=${query}&media=music`)
                 .then(response => response.json())
@@ -150,7 +151,33 @@ This guide provides a complete example of integrating the iTunes API into a web 
                 .catch(error => console.error('Error fetching data:', error));
         }
 
-        // Event listener for search button
+        function performGenreSearch(genre) {
+            const genreId = genreMapping[genre.toLowerCase()];
+            if (genreId) {
+                fetch(`https://itunes.apple.com/search?term=&media=music&genreId=${genreId}&entity=musicTrack`)
+                    .then(response => response.json())
+                    .then(data => {
+                        displayResults(data.results);
+                    })
+                    .catch(error => console.error('Error fetching data:', error));
+            } else {
+                alert("Genre not found. Please enter a valid genre.");
+            }
+        }
+
+        function performEraSearch(era) {
+            fetch(`https://itunes.apple.com/search?term=${era}&media=music`)
+                .then(response => response.json())
+                .then(data => {
+                    const filteredResults = data.results.filter(item => {
+                        const releaseYear = new Date(item.releaseDate).getFullYear();
+                        return releaseYear >= parseInt(era) && releaseYear < parseInt(era) + 10;
+                    });
+                    displayResults(filteredResults);
+                })
+                .catch(error => console.error('Error fetching data:', error));
+        }
+
         searchBtn.addEventListener("click", function() {
             const searchTerm = searchTermInput.value;
             if (searchTerm) {
@@ -159,38 +186,24 @@ This guide provides a complete example of integrating the iTunes API into a web 
             }
         });
 
-        // Event listener for search by genre button
         searchByGenreBtn.addEventListener("click", function() {
             const genre = searchGenreInput.value;
             if (genre) {
                 saveQuery(`Genre: ${genre}`);
-                fetch(`https://itunes.apple.com/search?term=${genre}&media=music`)
-                    .then(response => response.json())
-                    .then(data => {
-                        displayResults(data.results);
-                    })
-                    .catch(error => console.error('Error fetching data:', error));
+                performGenreSearch(genre);
             }
         });
 
-        // Event listener for search by era button
         searchByEraBtn.addEventListener("click", function() {
             const era = searchEraInput.value;
             if (era) {
                 saveQuery(`Era: ${era}`);
-                fetch(`https://itunes.apple.com/search?term=${era}&media=music`)
-                    .then(response => response.json())
-                    .then(data => {
-                        displayResults(data.results);
-                    })
-                    .catch(error => console.error('Error fetching data:', error));
+                performEraSearch(era);
             }
         });
 
-        // Event listener for clear recent queries button
         clearRecentQueriesBtn.addEventListener("click", clearRecentQueries);
 
-        // Load recent queries on page load
         window.addEventListener("load", displayRecentQueries);
     </script>
 </body>
