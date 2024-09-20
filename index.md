@@ -294,7 +294,8 @@ Welcome to my GitHub Pages site! Here’s a quick overview of the sections avail
 
 ## Other Stuff
 
-- [Calculator]({{site.baseurl}}/binarycalculator/sprint1)
+- [Binary Calculator]({{site.baseurl}}/binarycalculator/sprint1)
+- [Calculator]({{site.baseurl}}/calculator/sprint1)
 
 
 <link rel="stylesheet" href="/assets/css/custom.css">
