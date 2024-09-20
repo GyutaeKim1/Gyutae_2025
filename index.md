@@ -7,9 +7,7 @@ image: /images/mario_animation.png
 hide: true
 ---
 
- <span style="color: blue;">Welcome! Hi, my name is Gyutae. My journey starts here...</span>
-
-# welcome 
+## welcome 
 
 <style>
 
@@ -276,16 +274,9 @@ document.addEventListener("DOMContentLoaded", function() {
 ![CR7](images/Cristiano-Ronaldo.avif)
 
 
-# My GitHub Pages
+## My GitHub Pages
 
 Welcome to my GitHub Pages site! Here’s a quick overview of the sections available:
-
-## Main Menu
-
-- [Home](index.md)
-- [Notebooks](notebooks.md)
-- [About](about.md)
-- [Projects](projects.md)
 
 ## Notebooks Submenu
 
@@ -307,11 +298,7 @@ Welcome to my GitHub Pages site! Here’s a quick overview of the sections avail
 
 <link rel="stylesheet" href="/assets/css/custom.css">
 
-# Theme-Switcher
-
-<button id="theme-switcher">Switch Theme</button>
-
-# Rock Paper Scissors Game
+## Rock Paper Scissors Game
 
 <span style="color: yellow;">Here is a simple Rock, Paper, Scissors game you can play directly in your browser!</span>
 
@@ -350,7 +337,7 @@ function play(userChoice) {
 }
 </script>
 
-# Cristiano Ronaldo Chasing the World Cup Animation
+## Cristiano Ronaldo Chasing the World Cup Animation
 
 <span style="color: green;">Use the W, A, S, and D keys to move Cristiano Ronaldo and catch the World Cup as it moves randomly!</span>
 
