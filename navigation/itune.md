@@ -1,9 +1,4 @@
-# iTunes API Integration Guide
-
-## Overview
-This guide provides a complete example of integrating the iTunes API into a web project. It includes a setup for searching and displaying music, saving recent queries, and styling the page.
-
-# iTunes API Integration Guide
+## iTunes API Integration Guide
 
 ## Overview
 This guide provides a complete example of integrating the iTunes API into a web project. It includes a setup for searching and displaying music, saving recent queries, and styling the page, with additional features for searching by genre and era and managing recent searches.
