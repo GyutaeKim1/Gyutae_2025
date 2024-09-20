@@ -290,6 +290,7 @@ Welcome to my GitHub Pages site! Here’s a quick overview of the sections avail
 - [Cookie Clicker]({{site.baseurl}}/cookieclicker/sprint1)
 - [Tic-Tac-Toe]({{site.baseurl}}/tictactoe/sprint1)
 - [Snake Game]({{site.baseurl}}/snake/sprint1)
+- [Rock Paper Scissors]({{site.baseurl}}/rps/sprint1)
 
 ## Other Stuff
 
@@ -298,44 +299,6 @@ Welcome to my GitHub Pages site! Here’s a quick overview of the sections avail
 
 <link rel="stylesheet" href="/assets/css/custom.css">
 
-## Rock Paper Scissors Game
-
-<span style="color: yellow;">Here is a simple Rock, Paper, Scissors game you can play directly in your browser!</span>
-
-## Instructions
-
-<span style="color: red;">Click on one of the buttons below to make your choice. The computer will then make its choice, and you'll see the result.</span>
-
-<div id="game">
-    <button onclick="play('rock')">Rock</button>
-    <button onclick="play('paper')">Paper</button>
-    <button onclick="play('scissors')">Scissors</button>
-</div>
-
-<p id="result"></p>
-
-<script>
-function play(userChoice) {
-    const choices = ['rock', 'paper', 'scissors'];
-    const computerChoice = choices[Math.floor(Math.random() * 3)];
-    
-    let result = '';
-    
-    if (userChoice === computerChoice) {
-        result = 'It\'s a tie!';
-    } else if (
-        (userChoice === 'rock' && computerChoice === 'scissors') ||
-        (userChoice === 'paper' && computerChoice === 'rock') ||
-        (userChoice === 'scissors' && computerChoice === 'paper')
-    ) {
-        result = 'You win!';
-    } else {
-        result = 'You lose!';
-    }
-    
-    document.getElementById('result').innerText = `Computer chose ${computerChoice}. ${result}`;
-}
-</script>
 
 ## Cristiano Ronaldo Chasing the World Cup Animation
 
