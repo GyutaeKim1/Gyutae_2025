@@ -268,11 +268,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 </script>
 
-
-
-
-![CR7](images/Cristiano-Ronaldo.avif)
-
+<img src="images/Cristiano-Ronaldo.avif" alt="Cristiano Ronaldo" style="border: 5px solid yellow; padding: 10px; border-radius: 5px;">
 
 ## Notebook Submenu
 
