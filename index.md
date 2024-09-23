@@ -495,3 +495,68 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
 
 
+
+
+
+<style>
+  /* Sparkling animation */
+  @keyframes sparkle {
+    0%, 100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.5;
+      transform: scale(1.2);
+    }
+  }
+
+  .sparkling {
+    position: relative;
+    display: inline-block;
+    background-color: #ffcc00;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(255, 255, 0, 0.7);
+    animation: sparkle 1.5s infinite ease-in-out;
+  }
+
+  .sparkling:before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    width: 10px;
+    height: 10px;
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.7);
+    animation: sparkle 1s infinite ease-in-out;
+  }
+
+  .sparkling:after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    right: -5px;
+    width: 10px;
+    height: 10px;
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.7);
+    animation: sparkle 1.5s infinite ease-in-out reverse;
+  }
+</style>
+
+<audio id="siuSound" src="sound/siuuu.mp3"></audio>
+
+<div class="sparkling">
+  <img src="images/Cristiano-Ronaldo.avif" alt="Cristiano Ronaldo" style="width: 200px;" onclick="playSiuSound()">
+</div>
+
+<script>
+  function playSiuSound() {
+    const audio = document.getElementById('siuSound');
+    audio.play();
+  }
+</script>
