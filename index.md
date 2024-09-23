@@ -274,31 +274,142 @@ document.addEventListener("DOMContentLoaded", function() {
 ![CR7](images/Cristiano-Ronaldo.avif)
 
 
-## My GitHub Pages
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fancy Animations and Links</title>
+    <style>
+        /* CSS for fade-in effect */
+        .fade-in {
+            opacity: 0;
+            transition: opacity 1s ease-in;
+        }
+        .fade-in.visible {
+            opacity: 1;
+        }
+        /* Button hover effect */
+        .button {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            transition: transform 0.2s, background-color 0.3s;
+            cursor: pointer;
+        }
+        .button:hover {
+            transform: scale(1.1);
+            background-color: #45a049; /* Darker green */
+        }
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+        /* Modal styles */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed;
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+            animation: fadeIn 0.5s; /* Fade-in animation */
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto; /* 15% from the top and centered */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; /* Could be more or less, depending on screen size */
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        @keyframes fadeIn {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+        /* Styles for links */
+        .links {
+            text-align: left;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Notebook Submenu</h1>
+    <div class="fade-in">This will fade in when the page loads!</div>
+    <button id="modalBtn" class="button">Open Submenu</button>
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Notebooks</h2>
+            <ul>
+                <li><a href="{{site.baseurl}}/plans/sprint1">Planning Document</a></li>
+                <li><a href="{{site.baseurl}}/jscell/sprint1">JavaScript Notebook</a></li>
+                <li><a href="{{site.baseurl}}/about/sprint1">About Page</a></li>
+                <li><a href="{{site.baseurl}}/2024/09/16/jupyter_IPYNB_2_.html">Jupyter Notebook</a></li>
+            </ul>
+            <h2>Games</h2>
+            <ul>
+                <li><a href="{{site.baseurl}}/cookieclicker/sprint1">Cookie Clicker</a></li>
+                <li><a href="{{site.baseurl}}/tictactoe/sprint1">Tic-Tac-Toe</a></li>
+                <li><a href="{{site.baseurl}}/snake/sprint1">Snake Game</a></li>
+                <li><a href="{{site.baseurl}}/rps/sprint1">Rock Paper Scissors</a></li>
+            </ul>
+           <h2>Other Stuff</h2>
+            <ul>
+                <li><a href="{{site.baseurl}}/binarycalculator/sprint1">Binary Calculator</a></li>
+                <li><a href="{{site.baseurl}}/calculator/sprint1">Calculator</a></li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        // JavaScript for fade-in effect
+        window.onload = function() {
+            const elements = document.querySelectorAll('.fade-in');
+            elements.forEach(el => {
+                el.classList.add('visible');
+            });
+        };
+        // JavaScript for modal functionality
+        const modal = document.getElementById("myModal");
+        const btn = document.getElementById("modalBtn");
+        const span = document.getElementsByClassName("close")[0];
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
 
-Welcome to my GitHub Pages site! Here’s a quick overview of the sections available:
+</body>
+</html>
 
-## Notebooks Submenu
-
-
-> **Notebooks**
-> 
-> - [Planning Document]({{site.baseurl}}/plans/sprint1)  
-> - [JavaScript Notebook]({{site.baseurl}}/jscell/sprint1)  
-> - [About Page]({{site.baseurl}}/about/sprint1)  
-> - [Jupyter Notebook]({{site.baseurl}}/2024/09/16/jupyter_IPYNB_2_.html)
-
-> **Games**
-> 
-> - [Cookie Clicker]({{site.baseurl}}/cookieclicker/sprint1)  
-> - [Tic-Tac-Toe]({{site.baseurl}}/tictactoe/sprint1)  
-> - [Snake Game]({{site.baseurl}}/snake/sprint1)  
-> - [Rock Paper Scissors]({{site.baseurl}}/rps/sprint1)
-
-> **Other Stuff**
-> 
-> - [Binary Calculator]({{site.baseurl}}/binarycalculator/sprint1)  
-> - [Calculator]({{site.baseurl}}/calculator/sprint1)
 
 
 <link rel="stylesheet" href="/assets/css/custom.css">
