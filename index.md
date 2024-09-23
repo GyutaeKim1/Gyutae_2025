@@ -280,22 +280,25 @@ Welcome to my GitHub Pages site! Here’s a quick overview of the sections avail
 
 ## Notebooks Submenu
 
-- [Planning Document]({{site.baseurl}}/plans/sprint1)
-- [JavaScript Notebook]({{site.baseurl}}/jscell/sprint1)
-- [About Page]({{site.baseurl}}/about/sprint1)
-- [Jupyter Notebook]({{site.baseurl}}/2024/09/16/jupyter_IPYNB_2_.html)
 
-## Games
+> **Notebooks**
+> 
+> - [Planning Document]({{site.baseurl}}/plans/sprint1)  
+> - [JavaScript Notebook]({{site.baseurl}}/jscell/sprint1)  
+> - [About Page]({{site.baseurl}}/about/sprint1)  
+> - [Jupyter Notebook]({{site.baseurl}}/2024/09/16/jupyter_IPYNB_2_.html)
 
-- [Cookie Clicker]({{site.baseurl}}/cookieclicker/sprint1)
-- [Tic-Tac-Toe]({{site.baseurl}}/tictactoe/sprint1)
-- [Snake Game]({{site.baseurl}}/snake/sprint1)
-- [Rock Paper Scissors]({{site.baseurl}}/rps/sprint1)
+> **Games**
+> 
+> - [Cookie Clicker]({{site.baseurl}}/cookieclicker/sprint1)  
+> - [Tic-Tac-Toe]({{site.baseurl}}/tictactoe/sprint1)  
+> - [Snake Game]({{site.baseurl}}/snake/sprint1)  
+> - [Rock Paper Scissors]({{site.baseurl}}/rps/sprint1)
 
-## Other Stuff
-
-- [Binary Calculator]({{site.baseurl}}/binarycalculator/sprint1)
-- [Calculator]({{site.baseurl}}/calculator/sprint1)
+> **Other Stuff**
+> 
+> - [Binary Calculator]({{site.baseurl}}/binarycalculator/sprint1)  
+> - [Calculator]({{site.baseurl}}/calculator/sprint1)
 
 
 <link rel="stylesheet" href="/assets/css/custom.css">
