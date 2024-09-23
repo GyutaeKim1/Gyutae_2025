@@ -274,6 +274,8 @@ document.addEventListener("DOMContentLoaded", function() {
 ![CR7](images/Cristiano-Ronaldo.avif)
 
 
+## Notebook Submenu
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -353,8 +355,8 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     </style>
 </head>
+
 <body>
-    <h1>Notebook Submenu</h1>
     <div class="fade-in">This will fade in when the page loads!</div>
     <button id="modalBtn" class="button">Open Submenu</button>
     <!-- The Modal -->
