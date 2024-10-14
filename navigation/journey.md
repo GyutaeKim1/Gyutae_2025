@@ -28,3 +28,5 @@ So, I tried changing layout as custon-layout, and it worked.
 
 ![customlayout2]({{site.baseurl}}/images/customlayout2.png)
 
+
+
