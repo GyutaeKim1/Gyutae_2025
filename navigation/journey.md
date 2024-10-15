@@ -36,3 +36,47 @@ At first, I didn't know what pseudocode is. I tried to make an example, but I ha
 
 ![pseudocodeexample]({{site.baseurl}}/images/pseudocode.png)
 
+-------------------------------------------------------------------------------------------------------------------------
+
+<body>
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Games</h2>
+            <ul>
+                <li><a href="{{site.baseurl}}/cookieclicker/sprint1">Cookie Clicker</a></li>
+                <li><a href="{{site.baseurl}}/tictactoe/sprint1">Tic-Tac-Toe</a></li>
+                <li><a href="{{site.baseurl}}/snake/sprint1">Snake Game</a></li>
+                <li><a href="{{site.baseurl}}/rps/sprint1">Rock Paper Scissors</a></li>
+            </ul>
+           <h2>Other Stuff</h2>
+            <ul>
+                <li><a href="{{site.baseurl}}/binarycalculator/sprint1">Binary Calculator</a></li>
+                <li><a href="{{site.baseurl}}/calculator/sprint1">Calculator</a></li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        // JavaScript for fade-in effect
+        window.onload = function() {
+            const elements = document.querySelectorAll('.fade-in');
+            elements.forEach(el => {
+                el.classList.add('visible');
+            });
+        };
+        // JavaScript for modal functionality
+        const modal = document.getElementById("myModal");
+        const btn = document.getElementById("modalBtn");
+        const span = document.getElementsByClassName("close")[0];
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
