@@ -560,3 +560,12 @@ document.addEventListener("DOMContentLoaded", function() {
     audio.play();
   }
 </script>
+
+---------------------------------
+
+| Week Date   | Weekly Plan |
+|-------------|-------------|
+| **9/30 ~ 10/4**  | [Weekly Plan]({{site.baseurl}}/weeklyplan1/sprint2) | 
+| **10/7 ~ 10/11** | [Weekly Plan]({{site.baseurl}}/weeklyplan2/sprint2) | 
+
+
