@@ -53,6 +53,12 @@ def convert_notebook_to_markdown_with_front_matter(notebook_file):
     with open(notebook_file, 'r', encoding='utf-8') as file:
         notebook = nbformat.read(file, as_version=nbformat.NO_CONVERT)
         
+        # Check if the notebook has any cells
+        if not notebook.cells:
+            print(f"Error: Notebook {notebook_file} has no cells.")
+            error_cleanup(notebook_file)
+            sys.exit(1)
+        
         # Extract front matter from the first cell
         front_matter = extract_front_matter(notebook_file, notebook.cells[0])
         
